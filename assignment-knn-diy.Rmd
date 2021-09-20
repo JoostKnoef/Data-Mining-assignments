@@ -1,0 +1,52 @@
+---
+title: "Assigment - kNN DIY"
+author:
+  - name author here - Author
+  - name reviewer here - Reviewer
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+   html_notebook:
+    toc: true
+    toc_depth: 2
+---
+
+
+```{r}
+library(tidyverse)
+library(googlesheets4)
+library(class)
+library(caret)
+```
+
+---
+
+Choose a suitable dataset from [this](https://github.com/HAN-M3DM-Data-Mining/assignments/tree/master/datasets) folder and train  your own kNN model. Follow all the steps from the CRISP-DM model.
+
+
+## Business Understanding
+Experimental data used for binary classification (room occupancy) from Temperature,Humidity,Light and CO2. Ground-truth occupancy was obtained from time stamped pictures that were taken every minute.
+
+## Data Understanding
+date time year-month-day hour:minute:second
+Temperature, in Celsius
+Relative Humidity, %
+Light, in Lux
+CO2, in ppm
+Humidity Ratio, Derived quantity from temperature and relative humidity, in kgwater-vapor/kg-air
+Occupancy, 0 or 1, 0 for not occupied, 1 for occupied status
+
+## Data Preparation
+df <- KNN.occupancy
+colnames(df) <- as.character(df[1,])
+df = df[-1,]
+
+df1 <- separate(df, date, into = c("date", "time"), sep = " (?=[^ ]+$)")
+view(df1)
+
+## Modeling
+text and code here
+
+## Evaluation and Deployment
+text and code here
+
+reviewer adds suggestions for improving the model
